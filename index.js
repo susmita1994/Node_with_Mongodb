@@ -1,6 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
-
-const URL = "mongodb+srv://userdemo:susmita123@cluster0.7bnhj.mongodb.net/school?retryWrites=true&w=majority";
+// connection with Mongodb Atlas...
+// const URL = "mongodb+srv://userdemo:susmita123@cluster0.7bnhj.mongodb.net/school?retryWrites=true&w=majority";
+// connection with Mongodb community...
+const URL = " mongodb://127.0.0.1:27017/";
 const config = {useUnifiedTopology: true};
 MongoClient.connect(URL,config,function (error,MyMongoClient){
         if (error){
