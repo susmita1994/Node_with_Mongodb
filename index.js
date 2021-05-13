@@ -138,3 +138,31 @@ function DeleteMyCollection(MyMongoClient) {
         console.log(result);
     });
 }
+function DeleteOneItem(MyMongoClient) {
+    let MyDatabase =MyMongoClient.db("school");
+    let MyCollection=MyDatabase.collection("student");
+    let DeleteItem = { name:"Piku Nandi"};
+
+    MyCollection.deleteOne(DeleteItem,function (error) {
+        if(error){
+            console.log("Data delete Fail");
+        }
+        else{
+            console.log("Data delete success");
+        }
+    });
+}
+
+function DeleteAllItem(MyMongoClient) {
+    let MyDatabase =MyMongoClient.db("school");
+    let MyCollection=MyDatabase.collection("student");
+
+    MyCollection.deleteMany(function (error,resultObj) {
+        if(error){
+            console.log("Data delete Fail");
+        }
+        else {
+            console.log(resultObj.result.n +" " +"Item Deleted");
+        }
+    });
+}
